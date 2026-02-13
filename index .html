@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Siva Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+  
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      overflow-x: hidden;
+      color: #fff;
+    }/* ================= NAVBAR STYLE ================= */
+.custom-navbar {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,255,102,0.3);
+  padding: 12px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.custom-navbar .navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #00ff66 !important;
+}
+
+.custom-navbar .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  margin-left: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline effect */
+.custom-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #00ff66;
+  transition: width 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #00ff66 !important;
+}
+
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile menu */
+.custom-navbar .navbar-toggler {
+  border-color: #00ff66;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: 
+    url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,255,102,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+    /* ================= FIRE FLY BACKGROUND ================= */
+    #firefly-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .firefly {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00ff66 0%, rgba(0,255,102,0.2) 70%);
+      animation: float linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-130vh) translateX(120px);
+        opacity: 0;
+      }
+    }
+
+    /* ================= CURSOR EFFECT ================= */
+    .cursor-dot {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: cursorFade 0.8s forwards;
+      z-index: 2;
+    }
+
+    @keyframes cursorFade {
+      to {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* ================= CONTENT ================= */
+    nav, section, footer {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 span {
+      color: #00ff66;
+    }
+
+    .btn-primary {
+      background: #00ff66;
+      border: none;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .card {
+      background: rgb(4, 255, 0);
+      border: none;
+      color: #fff;
+    }
+
+    footer {
+      background: #050505;
+      padding: 30px 0;
+      text-align: center;
+    }
+    /* ================= RESUME / ABOUT DETAILS ================= */
+.big {
+  font-size: 60px;
+  font-weight: 700;
+  color: rgba(0,255,102,0.1);
+  text-align: center;
+}
+
+.about-info {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: auto;
+}
+
+.about-info li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-info span:first-child {
+  font-weight: 600;
+  color: #00ff66;
+}
+
+.about-info span:last-child {
+  color: #ddd;
+}
+/* ================= RESUME SECTION ================= */
+.resume-wrap {
+  background: rgba(0, 255, 102, 0.08);
+  border-left: 4px solid #00ff66;
+  padding: 25px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,255,102,0.3);
+}
+
+.resume-wrap .date {
+  color: #00ff66;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.resume-wrap h3 {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.resume-wrap .position {
+  font-size: 14px;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* ================= RESUME DOWNLOAD BUTTON ================= */
+.btn-resume {
+  background: transparent;
+  border: 2px solid #00ff66;
+  color: #00ff66;
+  padding: 12px 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-resume:hover {
+  background: #00ff66;
+  color: #000;
+  box-shadow: 0 0 25px rgba(0,255,102,0.6);
+  text-decoration: none;
+}
+.btn-resume {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 rgba(0,255,102,0.4); }
+  70% { box-shadow: 0 0 20px rgba(0,255,102,0.6); }
+  100% { box-shadow: 0 0 0 rgba(0,255,102,0.4); }
+}
+.custom-navbar {
+  font-family: 'Montserrat', sans-serif;
+}
+.project-card::before {
+  pointer-events: none;
+}
+
+/* ================= PROJECT SECTION ================= */
+.project-section {
+  background: #000;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 15px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(0,255,102,0.12), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(0,255,102,0.35);
+}
+
+.project-card h4 {
+  color: #00ff66;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.project-card p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.project-tags {
+  margin: 18px 0;
+}
+
+.project-tags span {
+  display: inline-block;
+  background: rgba(0,255,102,0.15);
+  color: #00ff66;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 4px 6px 4px 0;
+}
+
+.project-link {
+  color: #00ff66;
+  font-weight: 600;
+  text-decoration: none;
+  transition: letter-spacing 0.3s ease;
+}
+
+.project-link:hover {
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.project-card {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,102,0.12),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.project-card * {
+  position: relative;
+  z-index: 1;
+}
+/* ================= SKILLS SECTION ================= */
+.skills-section {
+  background: #000;
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 16px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.35s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(0,255,102,0.3);
+}
+
+.skill-card h4 {
+  color: #00ff66;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.skill {
+  margin-bottom: 18px;
+}
+
+.skill span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #eee;
+}
+
+.progress {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #00ff66, #66ff99);
+  border-radius: 10px;
+  transition: width 1.2s ease;
+}
+
+/* ================= SOFT SKILLS ================= */
+.soft-skill {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 14px;
+  padding: 25px 10px;
+  text-align: center;
+  font-size: 30px;
+  transition: all 0.3s ease;
+}
+
+.soft-skill p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #eee;
+  font-weight: 500;
+}
+
+.soft-skill:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0,255,102,0.35);
+}
+/* ================= SKILLS ICON STYLE ================= */
+.skills-section {
+  background: #000;
+}
+
+.skill-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 18px;
+  padding: 35px 15px;
+  text-align: center;
+  font-size: 34px;
+  transition: all 0.35s ease;
+  height: 100%;
+}
+
+.skill-box h5 {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00ff66;
+}
+
+.skill-box span {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.skill-box:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 35px rgba(0,255,102,0.4);
+}
+
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+  background: #000;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 18px;
+  padding: 35px 20px;
+  text-align: center;
+  font-size: 36px;
+  transition: all 0.35s ease;
+  height: 100%;
+}
+
+.contact-card h5 {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #00ff66;
+}
+
+.contact-card a,
+.contact-card p {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ddd;
+  word-break: break-word;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  color: #00ff66;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 35px rgba(0,255,102,0.4);
+}
+/* ================= CUSTOM NEON CURSOR ================= */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #00ff66;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(0,255,102,0.9);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(0,255,102,0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: 
+    width 0.25s ease,
+    height 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+  backdrop-filter: blur(2px);
+}
+
+/* Hover interaction */
+.cursor-hover {
+  width: 55px !important;
+  height: 55px !important;
+  border-color: #00ff66 !important;
+  background: rgba(0,255,102,0.12);
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-section {
+  background: #000;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 20px;
+  padding: 35px;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: all 0.35s ease;
+}
+
+.about-card strong {
+  color: #00ff66;
+}
+
+.about-card .highlight {
+  margin-top: 20px;
+  font-style: italic;
+  color: #00ff66;
+  font-weight: 500;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0,255,102,0.3);
+}
+
+/* Personal info */
+.about-info-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.about-info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-info-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+.about-info-card li span:first-child {
+  color: #00ff66;
+  font-weight: 600;
+}
+
+.about-info-card li span:last-child {
+  color: #ddd;
+}
+
+/* ================= PROFILE PHOTO ================= */
+.profile-wrapper {
+  width: 220px;
+  height: 220px;
+  margin: auto;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #00ff66, #66ff99);
+  box-shadow: 
+    0 0 25px rgba(0,255,102,0.6),
+    0 0 50px rgba(0,255,102,0.4);
+  animation: profileFloat 4s ease-in-out infinite;
+
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #000;
+}
+
+/* Floating animation */
+@keyframes profileFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* Mobile resize */
+@media (max-width: 768px) {
+  .profile-wrapper {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+  }
+}
+/* ================= CONTACT – UPDATED STYLE ================= */
+.contact-section {
+  background: #000;
+}
+
+.neon-hover {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 20px;
+  padding: 40px 25px;
+  text-align: center;
+  font-size: 34px;
+  transition: all 0.35s ease;
+}
+
+.neon-hover h5 {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #00ff66;
+}
+
+.neon-hover a,
+.neon-hover p {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.neon-hover a:hover {
+  color: #00ff66;
+}
+
+.neon-hover:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0,255,102,0.5);
+}
+
+/* ================= SOCIAL LINKS ================= */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.social-btn {
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  border: 2px solid transparent;
+}
+
+/* Individual platforms */
+.social-btn.instagram {
+  color: #ff4d8d;
+  border-color: #ff4d8d;
+}
+
+.social-btn.github {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.social-btn.linkedin {
+  color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.social-btn:hover {
+  background: #00ff66;
+  color: #000 !important;
+  border-color: #00ff66;
+  box-shadow: 0 0 25px rgba(0,255,102,0.6);
+  transform: translateY(-4px);
+}
+/* ================= CONTACT – NEW STYLE ================= */
+.contact-section {
+  background: #000;
+}
+
+.contact-section h2 {
+  color: #00ff66;
+  font-weight: 700;
+}
+
+.contact-section .text-muted {
+  color: #aaa !important;
+  font-size: 15px;
+}
+
+.contact-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 22px;
+  padding: 40px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.contact-icon {
+  display: inline-block;
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #00ff66;
+}
+
+.contact-box h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.contact-box a,
+.contact-box p {
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-box a:hover {
+  color: #00ff66;
+}
+
+.contact-box:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 45px rgba(0,255,102,0.45);
+}
+
+/* ================= SOCIAL STRIP ================= */
+.social-strip {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.social-strip a {
+  padding: 10px 26px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00ff66;
+  border: 2px solid #00ff66;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.social-strip a:hover {
+  background: #00ff66;
+  color: #000;
+  box-shadow: 0 0 25px rgba(0,255,102,0.6);
+  transform: translateY(-4px);
+}
+/* ================= HERO – NEW STYLE ================= */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,255,102,0.25);
+  border-radius: 28px;
+  padding: 70px 40px;
+  max-width: 720px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 60px rgba(0,255,102,0.25);
+  animation: heroFade 1.2s ease;
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-title span {
+  background: linear-gradient(90deg, #00ff66, #66ff99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 40px;
+  min-height: 26px;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 14px 34px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.hero-btn.primary {
+  background: #00ff66;
+  color: #000;
+}
+
+.hero-btn.primary:hover {
+  box-shadow: 0 0 30px rgba(0,255,102,0.7);
+  transform: translateY(-3px);
+}
+
+.hero-btn.outline {
+  border: 2px solid #00ff66;
+  color: #00ff66;
+}
+
+.hero-btn.outline:hover {
+  background: #00ff66;
+  color: #000;
+  box-shadow: 0 0 30px rgba(0,255,102,0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 38px;
+  }
+  .hero-card {
+    padding: 50px 25px;
+  }
+}
+/* ================= HERO PROFILE PHOTO ================= */
+.hero-photo {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, #00ff66, #66ff99);
+  box-shadow:
+    0 0 25px rgba(0,255,102,0.6),
+    0 0 45px rgba(0,255,102,0.4);
+  animation: heroPhotoFloat 4s ease-in-out infinite;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #000;
+}
+
+/* Floating animation */
+@keyframes heroPhotoFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
+/* ================= NEW HERO STYLE ================= */
+.hero-new {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* LEFT PROFILE PHOTO */
+.hero-photo-left {
+  width: 260px;
+  height: 260px;
+  margin: auto;
+  border-radius: 50%;
+  padding: 7px;
+  background: linear-gradient(135deg, #00ff66, #66ff99);
+  box-shadow:
+    0 0 30px rgba(0,255,102,0.6),
+    0 0 60px rgba(0,255,102,0.35);
+  animation: heroPhotoFloat 4s ease-in-out infinite;
+}
+
+.hero-photo-left img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #000;
+}
+
+/* TEXT */
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-title span {
+  background: linear-gradient(90deg, #00ff66, #66ff99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 35px;
+  min-height: 26px;
+}
+
+/* BUTTONS */
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.35s ease;
+}
+
+.hero-btn.primary {
+  background: #00ff66;
+  color: #000;
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0,255,102,0.7);
+}
+
+.hero-btn.outline {
+  border: 2px solid #00ff66;
+  color: #00ff66;
+}
+
+.hero-btn.outline:hover {
+  background: #00ff66;
+  color: #000;
+  box-shadow: 0 0 30px rgba(0,255,102,0.7);
+}
+
+/* FLOAT ANIMATION */
+@keyframes heroPhotoFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-photo-left {
+    width: 190px;
+    height: 190px;
+  }
+}
+
+/* ================= HERO GRADIENT WAVE ================= */
+.hero-new {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-new::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at 30% 40%, rgba(0,255,102,0.15), transparent 40%),
+              radial-gradient(circle at 70% 60%, rgba(0,255,102,0.12), transparent 40%);
+  animation: waveMove 18s linear infinite;
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-new .container {
+  position: relative;
+  z-index: 2;
+}
+
+  </style>  */
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- FIRE FLY BACKGROUND -->
+<div id="firefly-container"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+
+  <div class="container">
+    <a class="navbar-brand" href="#">Sivakumar</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+  <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+  <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+  <a href="#resume" class="nav-link">Resume</a>
+  <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+  <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+  <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
+    </div>
+  </div>
+</nav>
+<!-- HERO -->
+<section id="home" class="hero hero-new">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT : PROFILE PHOTO -->
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <div class="hero-photo-left">
+          <img src="Screenshot 2026-02-08 160338.png" alt="Sivakumar Profile Photo">
+        </div>
+      </div>
+
+      <!-- RIGHT : TEXT CONTENT -->
+      <div class="col-md-7 text-md-left text-center">
+        <h1 class="hero-title">
+          Hi, I'm <span>Sivakumar</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          <span class="typing"></span>
+        </p>
+
+        <div class="hero-actions justify-content-md-start justify-content-center">
+          <a href="#contact" class="btn hero-btn primary">Hire Me</a>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ABOUT -->
+<section id="about" class="section about-section">
+  <div class="container">
+
+    <h1 class="big">About</h1>
+    <h2 class="text-center mb-5">About Me</h2>
+
+    <div class="row align-items-center">
+<!-- Profile Photo -->
+<div class="col-md-4 mb-4 text-center">
+  <div class="profile-wrapper">
+    <img src="pic.jpg" alt="Sivakumar Profile Photo" class="profile-img">
+  </div>
+</div>
+
+      <!-- Left: About Text -->
+      <div class="col-md-6 mb-4">
+        <div class="about-card">
+          <p>
+            I am a motivated <strong>B.Tech Information Technology</strong> student with a
+            strong passion for <strong>web development, data analytics, and machine learning</strong>.
+            I enjoy building modern, user-friendly web applications and transforming data
+            into meaningful insights.
+          </p>
+
+          <p>
+            I actively participate in workshops, bootcamps, and internships to stay
+            industry-ready and continuously upgrade my technical skills.
+          </p>
+
+          <p class="highlight">
+            “Curious learner • Problem solver • Tech enthusiast”
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" class="section">
+  <div class="container">
+
+    <h1 class="big">Resume</h1>
+    <h2 class="text-center mb-5">Education</h2>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="resume-wrap">
+          <span class="date">2020 – 2021</span>
+          <h3>SSLC (X Standard)</h3>
+          <span class="position">Subash Matric Hr Sec School</span>
+          <p class="mt-3">
+            Completed 10th grade during the COVID-19 pandemic under the
+            government’s <strong>All Pass</strong> policy. Stayed committed to
+            self-learning despite remote education challenges.
+          </p>
+         
+
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="resume-wrap">
+          <span class="date">2022 – 2023</span>
+          <h3>HSC (XII Standard)</h3>
+          <span class="position">Subash Matric Hr Sec School</span>
+          <p class="mt-3">
+            Successfully completed higher secondary education with
+            <strong>74.6%</strong>, showing consistent academic effort and
+            dedication.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="resume-wrap">
+          <span class="date">2023 – 2027</span>
+          <h3>B.Tech – Information Technology</h3>
+          <span class="position">VSB College of Engineering Technical Campus</span>
+          <p class="mt-3">
+            Currently pursuing B.Tech in Information Technology with a
+            <strong>CGPA of 8.0</strong>. Building a strong foundation in
+            programming, web development, and problem-solving skills.
+          </p>
+        </div>
+      </div>
+    </div>
+ <div class="text-center mb-5">
+  <a href="Siva Resume.docx" download class="btn btn-resume">
+    📄 Download Resume (PDF)
+  </a>
+</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section project-section">
+  <div class="container">
+    <h2 class="text-center mb-5">My Projects</h2>
+
+    <div class="row">
+
+      <!-- Project 1 -->
+      <div class="col-md-6 mb-4">
+        <div class="project-card">
+          <h4>Cricket Data Analysis & Visualization</h4>
+          <p>
+            An analytics project focused on international cricket statistics across
+            ODI, T20, and Test formats using data cleaning and visualization.
+          </p>
+
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>Matplotlib</span>
+            <span>Seaborn</span>
+          </div>
+
+          <a href="https://github.com/siva240905/Cricket-Data-Analysis-Visualization-ODI-T20-Test-"
+             target="_blank"
+             class="project-link">
+            View on GitHub →
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-6 mb-4">
+        <div class="project-card">
+          <h4>Cricket Performance Analysis (ML)</h4>
+          <p>
+            A machine learning project that predicts and evaluates cricket player
+            performance using feature engineering and model training.
+          </p>
+
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Machine Learning</span>
+            <span>scikit-learn</span>
+            <span>Pandas</span>
+          </div>
+
+          <a href="https://github.com/siva240905/cricket-performance-analysis-ml"
+             target="_blank"
+             class="project-link">
+            View on GitHub →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+
+<!-- SKILLS -->
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <h2 class="text-center mb-5">My Skills</h2>
+
+    <div class="row">
+
+      <!-- Skill Card -->
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          🌐
+          <h5>HTML / CSS / JavaScript</h5>
+          <span>Advanced</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          ⚡
+          <h5>Java</h5>
+          <span>Intermediate</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          🐍
+          <h5>Python</h5>
+          <span>Advanced</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          🤖
+          <h5>Machine Learning</h5>
+          <span>Intermediate</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          📊
+          <h5>Data Analysis</h5>
+          <span>Pandas, NumPy</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          📈
+          <h5>Data Visualization</h5>
+          <span>Matplotlib, Seaborn</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          🔗
+          <h5>Git & GitHub</h5>
+          <span>Version Control</span>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4">
+        <div class="skill-box">
+          🧠
+          <h5>Problem Solving</h5>
+          <span>Logical Thinking</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2 class="text-center mb-2">Let’s Connect</h2>
+    <p class="text-center mb-5 text-muted">
+      Feel free to reach out for projects, collaborations, or opportunities
+    </p>
+
+    <div class="row justify-content-center">
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-4">
+        <div class="contact-box">
+          <span class="contact-icon">📧</span>
+          <h5>Email</h5>
+          <a href="mailto:sivasekars2005@gmail.com">
+            sivasekars2005@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="contact-box">
+          <span class="contact-icon">📞</span>
+          <h5>Phone</h5>
+          <a href="tel:+917871581868">
+            +91 78715 81868
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="contact-box">
+          <span class="contact-icon">📍</span>
+          <h5>Location</h5>
+          <p>Tirupur, Tamil Nadu</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social-strip">
+      <a href="https://github.com/siva240905" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/sivakumar240905/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/__shiva___.x/" target="_blank">Instagram</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Sivakumar | Portfolio</p>
+</footer>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Fireflies
+  const container = document.getElementById("firefly-container");
+  const COUNT = 60;
+
+  for (let i = 0; i < COUNT; i++) {
+    const f = document.createElement("div");
+    f.className = "firefly";
+    f.style.left = Math.random() * 100 + "vw";
+    f.style.top = Math.random() * 120 + "vh";
+    f.style.animationDuration = (Math.random() * 15 + 10) + "s";
+    f.style.animationDelay = Math.random() * 10 + "s";
+    container.appendChild(f);
+  }
+
+
+</script>
+<script>
+  const text = [
+    "Web Developer",
+    "UI / UX Designer",
+    "Data Analyst",
+    "Machine Learning Enthusiast"
+  ];
+
+  let count = 1;
+  let index = 1;
+  let currentText = "";
+  let letter = "";
+
+  (function type() {
+    if (count === text.length) {
+      count = 0;
+    }
+
+    currentText = text[count];
+    letter = currentText.slice(0, ++index);
+
+    document.querySelector(".typing").textContent = letter;
+
+    if (letter.length === currentText.length) {
+      setTimeout(() => index = 0, 1500);
+      count++;
+    }
+
+    setTimeout(type, 120);
+  })();
+</script>
+
+<script>
+  const dot = document.querySelector(".cursor-dot");
+  const ring = document.querySelector(".cursor-ring");
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener("mousemove", e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    dot.style.left = mouseX + "px";
+    dot.style.top = mouseY + "px";
+  });
+
+  function animateCursor() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+
+    ring.style.left = ringX + "px";
+    ring.style.top = ringY + "px";
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+
+  /* Hover targets */
+  const hoverTargets = document.querySelectorAll(
+    "a, button, .project-card, .skill-box, .contact-box, .social-strip a"
+  );
+
+  hoverTargets.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      ring.classList.add("cursor-hover");
+    });
+    el.addEventListener("mouseleave", () => {
+      ring.classList.remove("cursor-hover");
+    });
+  });
+</script>
+<script>
+  setInterval(() => {
+    heroPhoto.style.boxShadow =
+      `0 0 ${30 + Math.random() * 20}px rgba(0,255,102,0.7),
+       0 0 ${60 + Math.random() * 40}px rgba(0,255,102,0.4)`;
+  }, 2000);
+</script>
+
+
+</body>
+</html>
